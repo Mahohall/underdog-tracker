@@ -5,7 +5,7 @@ export async function fetchRedditRumors(teamName: string): Promise<NewsHeadline[
   const headlines: NewsHeadline[] = [];
 
   // Target Reddit search via HTML (unofficial - no API)
-  const searchUrl = \`https://www.reddit.com/search/?q=\${encodeURIComponent(teamName + " injury OR lineup OR suspension")}&sort=new\`;
+ const searchUrl = `https://www.reddit.com/search/?q=${encodeURIComponent(teamName + " injury OR lineup OR suspension")}&sort=new`;
 
   try {
     const response = await fetch(searchUrl);
