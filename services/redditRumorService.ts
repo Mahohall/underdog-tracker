@@ -1,11 +1,10 @@
-
 import type { NewsHeadline } from '../types';
 
 export async function fetchRedditRumors(teamName: string): Promise<NewsHeadline[]> {
   const headlines: NewsHeadline[] = [];
 
   // Target Reddit search via HTML (unofficial - no API)
- const searchUrl = `https://www.reddit.com/search/?q=${encodeURIComponent(teamName + " injury OR lineup OR suspension")}&sort=new`;
+  const searchUrl = `https://www.reddit.com/search/?q=${encodeURIComponent(teamName + " injury OR lineup OR suspension")}&sort=new`;
 
   try {
     const response = await fetch(searchUrl);
@@ -19,13 +18,13 @@ export async function fetchRedditRumors(teamName: string): Promise<NewsHeadline[
       if (index < 3 && el.textContent) {
         headlines.push({
           title: el.textContent.trim(),
-          source: "Reddit",
-          publishedAgo: "unknown" // Reddit's public HTML doesn't include timestamp
+          source: 'Reddit',
+          publishedAgo: 'unknown' // Reddit’s public HTML doesn’t include timestamp
         });
       }
     });
   } catch (error) {
-    console.error(\`Error scraping Reddit for \${teamName} rumors:\`, error);
+    console.error(`Error scraping Reddit for '${teamName}' rumors:`, error);
   }
 
   return headlines;
