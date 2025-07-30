@@ -1,5 +1,0 @@
-{
-  "name": "Football Insight AI",
-  "description": "An AI-powered dashboard that analyzes football news headlines to predict potential match upsets. It identifies negative news affecting favored teams and flags matches where an upset is more likely.",
-  "requestFramePermissions": []
-}
