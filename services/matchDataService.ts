@@ -7,12 +7,14 @@ function formatDateForBBC(offsetDays: number): string {
   const yyyy = date.getFullYear();
   const mm = (date.getMonth() + 1).toString().padStart(2, '0');
   const dd = date.getDate().toString().padStart(2, '0');
-  return \`\${yyyy}-\${mm}-\${dd}\`;
+  return `${yyyy}-${mm}-${dd}`;
+
 }
 
 export async function fetchMatchesByDayOffset(offsetDays: number): Promise<Match[]> {
   const datePath = formatDateForBBC(offsetDays);
-  const url = \`https://www.bbc.com/sport/football/scores-fixtures/\${datePath}\`;
+  const url = `https://www.bbc.com/sport/football/scores-fixtures/${datePath}`;
+
   const response = await fetch(url);
   const html = await response.text();
 
