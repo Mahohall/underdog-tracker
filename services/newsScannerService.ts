@@ -8,7 +8,8 @@ export async function fetchTeamNews(teamName: string): Promise<NewsHeadline[]> {
   const searchQuery = encodeURIComponent(teamName + ' football');
 
   // Google News RSS Feed
-  const googleNewsUrl = \`https://news.google.com/rss/search?q=\${searchQuery}&hl=en-GB&gl=GB&ceid=GB:en\`;
+const googleNewsUrl = `https://news.google.com/rss/search?q=${searchQuery}&hl=en-GB&gl=GB&ceid=GB:en`;
+
 
   try {
     const res = await fetch(googleNewsUrl);
